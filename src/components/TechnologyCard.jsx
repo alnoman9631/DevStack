@@ -1,10 +1,7 @@
-function TechnologyCard({ technology, onAdd }) {
+function TechnologyCard({ technology, onAdd, isAdded }) {
   return (
     <article className="technology-card">
-
-      {/* Top section */}
       <div className="technology-card-top">
-
         <div className="technology-icon-wrapper">
           <img
             src={technology.icon}
@@ -18,22 +15,15 @@ function TechnologyCard({ technology, onAdd }) {
             {technology.badge}
           </span>
         )}
-
       </div>
 
-      {/* Technology name */}
-      <h3 className="technology-name">
-        {technology.name}
-      </h3>
+      <h3 className="technology-name">{technology.name}</h3>
 
-      {/* Description */}
       <p className="technology-description">
         {technology.description}
       </p>
 
-      {/* Information */}
       <div className="technology-info">
-
         <span className="technology-category">
           {technology.category}
         </span>
@@ -46,17 +36,17 @@ function TechnologyCard({ technology, onAdd }) {
           <span className="star">★</span>
           {technology.rating}
         </span>
-
       </div>
 
-      {/* Add button */}
       <button
-        className="technology-add-button"
+        className={`technology-add-button ${
+          isAdded ? "added" : ""
+        }`}
         onClick={() => onAdd(technology)}
+        disabled={isAdded}
       >
-        Add to Stack
+        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
       </button>
-
     </article>
   );
 }
