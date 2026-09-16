@@ -5,7 +5,7 @@ import Hero from "./components/Hero";
 import TechnologyGrid from "./components/TechnologyGrid";
 import YourStack from "./components/YourStack";
 
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import technologiesData from "./data/technologies.json";
@@ -25,22 +25,40 @@ function App() {
       );
 
       if (alreadyAdded) {
+        toast.warning(`${technology.name} is already in your stack.`);
         return currentStack;
       }
+      toast.success(`${technology.name} added to your stack!`);
 
       return [...currentStack, technology];
     });
   };
 
   const handleRemoveFromStack = (id) => {
-    setStack((currentStack) =>
-      currentStack.filter((technology) => technology.id !== id)
+  setStack((currentStack) => {
+    const removedTechnology = currentStack.find(
+      (technology) => technology.id === id
     );
-  };
+
+    if (removedTechnology) {
+      toast.info(`${removedTechnology.name} removed from your stack.`);
+    }
+
+    return currentStack.filter(
+      (technology) => technology.id !== id
+    );
+  });
+};
 
   const handleRemoveAll = () => {
-    setStack([]);
-  };
+  if (stack.length === 0) {
+    return;
+  }
+
+  setStack([]);
+
+  toast.info("All technologies removed from your stack.");
+};
 
   return (
     <>

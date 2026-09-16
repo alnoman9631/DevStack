@@ -1030,9 +1030,8 @@ code {
   background: #f3f4f6;
   color: #16a34a;
   border-color: #d1d5db;
-  cursor: not-allowed;
 }
 
 .technology-add-button.added:hover {
-  transform: none;
+  transform: translateY(-1px);
 }

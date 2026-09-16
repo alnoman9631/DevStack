@@ -43,7 +43,7 @@ function TechnologyCard({ technology, onAdd, isAdded }) {
           isAdded ? "added" : ""
         }`}
         onClick={() => onAdd(technology)}
-        disabled={isAdded}
+        // disabled={isAdded}
       >
         {isAdded ? "✓ Added to Stack" : "Add to Stack"}
       </button>
