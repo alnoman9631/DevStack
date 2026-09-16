@@ -1,53 +1,71 @@
 import { useState } from "react";
 
-const Navbar = () => {
+function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const links = [
-    { name: "Home", href: "#home" },
-    { name: "Technologies", href: "#technologies" },
-    { name: "Projects", href: "#projects" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" }
+  const navLinks = [
+    "Home",
+    "Technologies",
+    "Projects",
+    "About",
+    "Contact",
   ];
 
   return (
     <header className="navbar">
       <div className="navbar-container">
 
+        {/* Mobile Menu Button */}
         <button
           className="mobile-menu-button"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
+          aria-label="Toggle menu"
         >
-          ☰
+          <img src="/assets/hamburger.png" alt="Menu" />
         </button>
 
-        <a href="#home" className="brand">
-          <span className="brand-icon">&lt;/&gt;</span>
-          <span className="gradient-text">Dev Stack</span>
+        {/* Logo */}
+        <a href="#" className="navbar-logo">
+          <img src="/assets/logo-text.png" alt="Dev Stack" />
         </a>
 
-        <nav className={`nav-links ${menuOpen ? "show-mobile-menu" : ""}`}>
-          {links.map((link) => (
+        {/* Desktop Navigation */}
+        <nav className="navbar-links">
+          {navLinks.map((link) => (
             <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
+              href={`#${link.toLowerCase()}`}
+              key={link}
+              className={link === "Home" ? "active" : ""}
             >
-              {link.name}
+              {link}
             </a>
           ))}
         </nav>
 
-        <div className="auth-buttons">
-          <button className="signin-button">Sign In</button>
-          <button className="signup-button">Sign Up</button>
+        {/* Authentication Buttons */}
+        <div className="navbar-auth">
+          <button className="sign-in-button">Sign In</button>
+          <button className="sign-up-button">Sign Up</button>
         </div>
 
       </div>
+
+      {/* Mobile Navigation */}
+      {menuOpen && (
+        <nav className="mobile-menu">
+          {navLinks.map((link) => (
+            <a
+              href={`#${link.toLowerCase()}`}
+              key={link}
+              onClick={() => setMenuOpen(false)}
+            >
+              {link}
+            </a>
+          ))}
+        </nav>
+      )}
     </header>
   );
-};
+}
 
 export default Navbar;
