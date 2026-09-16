@@ -1,80 +1,51 @@
-const Hero = () => {
+function Hero() {
   return (
-    <section className="hero" id="home">
-      <div className="hero-content">
+    <section className="hero">
+      <div className="hero-container">
 
-        <div className="hero-text">
-          <div className="hero-badge">
-            🚀 Build. Learn. Create.
-          </div>
+        {/* Left Content */}
+        <div className="hero-content">
 
-          <h1>
-            Build Your
-            <span className="gradient-text"> Developer Stack</span>
+          <h1 className="hero-title">
+            <span className="hero-title-black">
+              Build Your Ideal
+            </span>
+
+            <span className="hero-title-gradient">
+              Development Stack
+            </span>
           </h1>
 
-          <p>
-            Discover the technologies, frameworks and tools you need
-            to build modern, scalable and professional web applications.
+          <p className="hero-description">
+            Explore frontend, backend, database, and tooling options,
+            compare them side by side, and put together the stack that
+            fits your next project.
           </p>
 
           <div className="hero-buttons">
-            <a href="#technologies" className="primary-button">
-              Explore Technologies →
-            </a>
+            <button className="hero-primary-button">
+              Explore Technologies
+            </button>
 
-            <a href="#about" className="secondary-button">
+            <button className="hero-secondary-button">
               Learn More
-            </a>
+            </button>
           </div>
 
-          <div className="hero-stats">
-            <div>
-              <strong>15+</strong>
-              <span>Technologies</span>
-            </div>
-
-            <div>
-              <strong>7</strong>
-              <span>Categories</span>
-            </div>
-
-            <div>
-              <strong>100%</strong>
-              <span>Developer Focused</span>
-            </div>
-          </div>
         </div>
 
+        {/* Right Illustration */}
         <div className="hero-image-wrapper">
-          <div className="hero-glow"></div>
-
           <img
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80"
-            alt="Modern technology workspace"
+            src="/assets/banner-stack.png"
+            alt="Development Stack"
             className="hero-image"
           />
-
-          <div className="floating-card floating-card-one">
-            <span>⚡</span>
-            <div>
-              <strong>Modern Stack</strong>
-              <small>Build faster</small>
-            </div>
-          </div>
-
-          <div className="floating-card floating-card-two">
-            <span>✓</span>
-            <div>
-              <strong>Ready to Build</strong>
-              <small>15 technologies</small>
-            </div>
-          </div>
         </div>
 
       </div>
     </section>
   );
-};
+}
 
 export default Hero;
