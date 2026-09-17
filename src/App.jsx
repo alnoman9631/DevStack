@@ -16,6 +16,7 @@ function App() {
   const [stack, setStack] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  /* Load technology data */
   useEffect(() => {
     setLoading(true);
 
@@ -27,6 +28,7 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  /* Add technology to stack */
   const handleAddToStack = (technology) => {
     setStack((currentStack) => {
       const alreadyAdded = currentStack.some(
@@ -34,15 +36,22 @@ function App() {
       );
 
       if (alreadyAdded) {
-        toast.warning(`${technology.name} is already in your stack.`);
+        toast.warning(
+          `${technology.name} is already in your stack.`
+        );
+
         return currentStack;
       }
-      toast.success(`${technology.name} added to your stack!`);
+
+      toast.success(
+        `${technology.name} added to your stack!`
+      );
 
       return [...currentStack, technology];
     });
   };
 
+  /* Remove one technology */
   const handleRemoveFromStack = (id) => {
     setStack((currentStack) => {
       const removedTechnology = currentStack.find(
@@ -50,7 +59,9 @@ function App() {
       );
 
       if (removedTechnology) {
-        toast.info(`${removedTechnology.name} removed from your stack.`);
+        toast.info(
+          `${removedTechnology.name} removed from your stack.`
+        );
       }
 
       return currentStack.filter(
@@ -59,6 +70,7 @@ function App() {
     });
   };
 
+  /* Remove all technologies */
   const handleRemoveAll = () => {
     if (stack.length === 0) {
       return;
@@ -76,11 +88,17 @@ function App() {
       <main>
         <Hero />
 
-        <section className="technologies-section" id="technologies">
+        <section
+          className="technologies-section"
+          id="technologies"
+        >
           <div className="technologies-container">
+
+            {/* Section heading */}
             <div className="technologies-heading">
               <h2>
-                Explore the <span>Technologies</span>
+                Explore the{" "}
+                <span>Technologies</span>
               </h2>
 
               <p>
@@ -88,33 +106,41 @@ function App() {
               </p>
             </div>
 
-            <div className="technologies-layout">
-              {loading ? (
-                <div className="loading-container">
-                  <div className="loading-spinner"></div>
-                  <p>Loading technologies...</p>
-                </div>
-              ) : (
-                <div className="technologies-layout">
-                  <TechnologyGrid
-                    technologies={technologies}
-                    stack={stack}
-                    onAdd={handleAddToStack}
-                  />
+            {/* Technology content */}
+            {loading ? (
+              <div className="loading-container">
+                <div className="loading-spinner"></div>
 
-                  <YourStack
-                    stack={stack}
-                    onRemove={handleRemoveFromStack}
-                    onRemoveAll={handleRemoveAll}
-                  />
-                </div>
-              )}
-            </div>
+                <p>Loading technologies...</p>
+              </div>
+            ) : (
+              <div className="technologies-layout">
+
+                {/* Left side */}
+                <TechnologyGrid
+                  technologies={technologies}
+                  stack={stack}
+                  onAdd={handleAddToStack}
+                />
+
+                {/* Right side */}
+                <YourStack
+                  stack={stack}
+                  onRemove={handleRemoveFromStack}
+                  onRemoveAll={handleRemoveAll}
+                />
+
+              </div>
+            )}
+
           </div>
         </section>
       </main>
 
-      <ToastContainer position="top-right" autoClose={2000} />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+      />
 
       <Footer />
     </>

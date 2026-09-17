@@ -1,65 +1,73 @@
 function Hero() {
-    return (
-        <section className="hero">
-            <div className="hero-container">
+  const scrollToTechnologies = () => {
+    document
+      .getElementById("technologies")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+  };
 
-                {/* Left Content */}
-                <div className="hero-content">
+  return (
+    <section className="hero">
 
-                    <h1 className="hero-title">
-                        <span className="hero-title-black">
-                            Build Your Ideal
-                        </span>
+      <div className="hero-container">
 
-                        <span className="hero-title-gradient">
-                            Development Stack
-                        </span>
-                    </h1>
+        {/* Hero Content */}
+        <div className="hero-content">
 
-                    <p className="hero-description">
-                        Explore frontend, backend, database, and tooling options,
-                        compare them side by side, and put together the stack that
-                        fits your next project.
-                    </p>
+          <h1 className="hero-title">
+            <span className="hero-title-black">
+              Build Your Ideal
+            </span>
 
-                    <div className="hero-buttons">
-                        <button
-                            className="hero-primary-button"
-                            onClick={() =>
-                                document
-                                    .getElementById("technologies")
-                                    ?.scrollIntoView({ behavior: "smooth" })
-                            }
-                        >
-                            Explore Technologies
-                        </button>
+            <span className="hero-title-gradient">
+              Development Stack
+            </span>
+          </h1>
 
-                        <button
-                            className="hero-secondary-button"
-                            onClick={() =>
-                                document
-                                    .getElementById("technologies")
-                                    ?.scrollIntoView({ behavior: "smooth" })
-                            }
-                        >
-                            Learn More
-                        </button>
-                    </div>
+          <p className="hero-description">
+            Explore frontend, backend, database, and tooling options,
+            compare them side by side, and put together the stack that
+            fits your next project.
+          </p>
 
-                </div>
+          <div className="hero-buttons">
 
-                {/* Right Illustration */}
-                <div className="hero-image-wrapper">
-                    <img
-                        src="/assets/banner-stack.png"
-                        alt="Development Stack"
-                        className="hero-image"
-                    />
-                </div>
+            <button
+              type="button"
+              className="hero-primary-button"
+              onClick={scrollToTechnologies}
+            >
+              Explore Technologies
+            </button>
 
-            </div>
-        </section>
-    );
+            <button
+              type="button"
+              className="hero-secondary-button"
+              onClick={scrollToTechnologies}
+            >
+              Learn More
+            </button>
+
+          </div>
+
+        </div>
+
+        {/* Hero Illustration */}
+        <div className="hero-image-wrapper">
+
+          <img
+            src="/assets/banner-stack.png"
+            alt="Development Stack illustration"
+            className="hero-image"
+          />
+
+        </div>
+
+      </div>
+
+    </section>
+  );
 }
 
 export default Hero;

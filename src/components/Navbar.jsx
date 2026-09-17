@@ -11,41 +11,85 @@ function Navbar() {
     "Contact",
   ];
 
+  const handleHomeClick = () => {
+    setMenuOpen(false);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <header className="navbar">
       <div className="navbar-container">
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           className="mobile-menu-button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          onClick={() => setMenuOpen((current) => !current)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
         >
-          <img src="/assets/hamburger.png" alt="Menu" />
+          <img
+            src="/assets/hamburger.png"
+            alt=""
+          />
         </button>
 
         {/* Logo */}
-        <a href="#" className="navbar-logo">
-          <img src="/assets/logo-text.png" alt="Dev Stack" />
+        <a
+          href="#"
+          className="navbar-logo"
+          onClick={handleHomeClick}
+          aria-label="Dev Stack Home"
+        >
+          <img
+            src="/assets/logo-text.png"
+            alt="Dev Stack"
+          />
         </a>
 
         {/* Desktop Navigation */}
         <nav className="navbar-links">
-          {navLinks.map((link) => (
-            <a
-              href={`#${link.toLowerCase()}`}
-              key={link}
-              className={link === "Home" ? "active" : ""}
-            >
-              {link}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const href =
+              link === "Home"
+                ? "#"
+                : `#${link.toLowerCase()}`;
+
+            return (
+              <a
+                href={href}
+                key={link}
+                className={link === "Home" ? "active" : ""}
+                onClick={
+                  link === "Home"
+                    ? handleHomeClick
+                    : undefined
+                }
+              >
+                {link}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Authentication Buttons */}
         <div className="navbar-auth">
-          <button className="sign-in-button">Sign In</button>
-          <button className="sign-up-button">Sign Up</button>
+          <button
+            type="button"
+            className="sign-in-button"
+          >
+            Sign In
+          </button>
+
+          <button
+            type="button"
+            className="sign-up-button"
+          >
+            Sign Up
+          </button>
         </div>
 
       </div>
@@ -53,15 +97,28 @@ function Navbar() {
       {/* Mobile Navigation */}
       {menuOpen && (
         <nav className="mobile-menu">
-          {navLinks.map((link) => (
-            <a
-              href={`#${link.toLowerCase()}`}
-              key={link}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link}
-            </a>
-          ))}
+
+          {navLinks.map((link) => {
+            const href =
+              link === "Home"
+                ? "#"
+                : `#${link.toLowerCase()}`;
+
+            return (
+              <a
+                href={href}
+                key={link}
+                onClick={
+                  link === "Home"
+                    ? handleHomeClick
+                    : () => setMenuOpen(false)
+                }
+              >
+                {link}
+              </a>
+            );
+          })}
+
         </nav>
       )}
     </header>

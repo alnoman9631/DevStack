@@ -1,10 +1,19 @@
 function YourStack({ stack, onRemove, onRemoveAll }) {
   return (
     <aside className="your-stack" id="stack">
+
+      {/* Header */}
       <div className="your-stack-header">
         <div>
           <h2>Your Stack</h2>
-          <p>{stack.length} technologies selected</p>
+
+          <p>
+            {stack.length}{" "}
+            {stack.length === 1
+              ? "technology"
+              : "technologies"}{" "}
+            selected
+          </p>
         </div>
 
         {stack.length > 0 && (
@@ -17,20 +26,34 @@ function YourStack({ stack, onRemove, onRemoveAll }) {
         )}
       </div>
 
+      {/* Empty state */}
       {stack.length === 0 ? (
         <div className="stack-empty">
-          <div className="stack-empty-icon">＋</div>
 
-          <h3>Your stack is empty</h3>
+          <div className="stack-empty-icon">
+            +
+          </div>
+
+          <h3>
+            Your stack is empty
+          </h3>
 
           <p>
             Add technologies from the list to build your development stack.
           </p>
+
         </div>
       ) : (
+
+        /* Selected technologies */
         <div className="stack-list">
+
           {stack.map((technology) => (
-            <div className="stack-item" key={technology.id}>
+            <div
+              className="stack-item"
+              key={technology.id}
+            >
+
               <img
                 src={technology.icon}
                 alt={technology.name}
@@ -38,21 +61,31 @@ function YourStack({ stack, onRemove, onRemoveAll }) {
               />
 
               <div className="stack-item-info">
-                <h3>{technology.name}</h3>
-                <span>{technology.category}</span>
+                <h3>
+                  {technology.name}
+                </h3>
+
+                <span>
+                  {technology.category}
+                </span>
               </div>
 
               <button
                 className="remove-stack-button"
-                onClick={() => onRemove(technology.id)}
+                onClick={() =>
+                  onRemove(technology.id)
+                }
                 aria-label={`Remove ${technology.name}`}
               >
                 ×
               </button>
+
             </div>
           ))}
+
         </div>
       )}
+
     </aside>
   );
 }
