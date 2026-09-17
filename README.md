@@ -6,17 +6,6 @@ Users can browse technologies by category, view important information such as di
 
 ---
 
-## Live Website
-
-Add your deployed website link here:
-
-https://your-live-site-url.com
-
-## GitHub Repository
-
-https://github.com/ProgrammingHero1/B14-A05-DevStack.git
-
----
 
 ## Project Description
 
