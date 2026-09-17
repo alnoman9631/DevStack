@@ -1,146 +1,135 @@
 function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
 
-  return (
-    <footer className="footer">
+    return (
+        <footer className="footer">
 
-      <div className="footer-container">
+            <div className="footer-container">
 
-        {/* Brand */}
-        <div className="footer-brand">
+                {/* Brand */}
+                <div className="footer-brand">
 
-          <button
-            type="button"
-            className="footer-logo"
-            onClick={scrollToTop}
-          >
-            <img
-              src="/assets/logo-text.png"
-              alt="Dev Stack"
-            />
-          </button>
+                    <button
+                        type="button"
+                        className="footer-logo"
+                        onClick={scrollToTop}
+                    >
+                        <img
+                            src="/assets/logo-text.png"
+                            alt="Dev Stack"
+                        />
+                    </button>
 
-          <p>
-            Build your ideal development stack by exploring
-            technologies, comparing options, and choosing the
-            right tools for your next project.
-          </p>
+                    <p>
+                        Build your ideal development stack by exploring
+                        technologies, comparing options, and choosing the
+                        right tools for your next project.
+                    </p>
 
-          {/* Social Links */}
-          <div className="footer-socials">
+                    {/* Social Links */}
+                    <div className="footer-socials">
+                        <a href="#" aria-label="GitHub">
+                            GH
+                        </a>
 
-            <a
-              href="#"
-              aria-label="Facebook"
-            >
-              f
-            </a>
+                        <a href="#" aria-label="Twitter">
+                            X
+                        </a>
 
-            <a
-              href="#"
-              aria-label="GitHub"
-            >
-              GH
-            </a>
+                        <a href="#" aria-label="LinkedIn">
+                            in
+                        </a>
+                    </div>
 
-            <a
-              href="#"
-              aria-label="LinkedIn"
-            >
-              in
-            </a>
+                </div>
 
-          </div>
+                {/* Product */}
+                <div className="footer-column">
 
-        </div>
+                    <h3>Product</h3>
 
-        {/* Product */}
-        <div className="footer-column">
+                    <a href="#technologies">
+                        Technologies
+                    </a>
 
-          <h3>Product</h3>
+                    <a href="#projects">
+                        Projects
+                    </a>
 
-          <a href="#technologies">
-            Technologies
-          </a>
+                    <a href="#stack">
+                        Your Stack
+                    </a>
 
-          <a href="#projects">
-            Projects
-          </a>
+                </div>
 
-          <a href="#stack">
-            Your Stack
-          </a>
+                {/* Company */}
+                <div className="footer-column">
 
-        </div>
+                    <h3>Company</h3>
 
-        {/* Company */}
-        <div className="footer-column">
+                    <a href="#about">
+                        About
+                    </a>
 
-          <h3>Company</h3>
+                    <a href="#contact">
+                        Contact
+                    </a>
 
-          <a href="#about">
-            About
-          </a>
+                    <a href="#">
+                        Careers
+                    </a>
 
-          <a href="#contact">
-            Contact
-          </a>
+                </div>
 
-          <a href="#">
-            Careers
-          </a>
+                {/* Legal */}
+                <div className="footer-column">
 
-        </div>
+                    <h3>Legal</h3>
 
-        {/* Legal */}
-        <div className="footer-column">
+                    <a href="#">
+                        Privacy Policy
+                    </a>
 
-          <h3>Legal</h3>
+                    <a href="#">
+                        Terms of Service
+                    </a>
 
-          <a href="#">
-            Privacy Policy
-          </a>
+                    <a href="#">
+                        Cookie Policy
+                    </a>
 
-          <a href="#">
-            Terms of Service
-          </a>
+                </div>
 
-          <a href="#">
-            Cookie Policy
-          </a>
+            </div>
 
-        </div>
+            {/* Bottom Footer */}
+            <div className="footer-bottom">
 
-      </div>
+                <p>
+                    © 2026 Dev Stack. All rights reserved.
+                </p>
 
-      {/* Bottom Footer */}
-      <div className="footer-bottom">
+                <div className="footer-bottom-links">
 
-        <p>
-          © 2026 Dev Stack. All rights reserved.
-        </p>
+                    <a href="#">
+                        Privacy
+                    </a>
 
-        <div className="footer-bottom-links">
+                    <a href="#">
+                        Terms
+                    </a>
 
-          <a href="#">
-            Privacy
-          </a>
+                </div>
 
-          <a href="#">
-            Terms
-          </a>
+            </div>
 
-        </div>
-
-      </div>
-
-    </footer>
-  );
+        </footer>
+    );
 }
 
 export default Footer;

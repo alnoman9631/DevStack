@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import technologiesData from "./data/technologies.json";
+
 
 function App() {
   const [technologies, setTechnologies] = useState([]);
@@ -18,15 +18,28 @@ function App() {
 
   /* Load technology data */
   useEffect(() => {
-    setLoading(true);
+  const loadTechnologies = async () => {
+    try {
+      setLoading(true);
 
-    const timer = setTimeout(() => {
-      setTechnologies(technologiesData);
+      const response = await fetch("/src/data/technologies.json");
+
+      if (!response.ok) {
+        throw new Error("Failed to load technologies");
+      }
+
+      const data = await response.json();
+
+      setTechnologies(data);
+    } catch (error) {
+      console.error("Error loading technologies:", error);
+    } finally {
       setLoading(false);
-    }, 500);
+    }
+  };
 
-    return () => clearTimeout(timer);
-  }, []);
+  loadTechnologies();
+}, []);
 
   /* Add technology to stack */
   const handleAddToStack = (technology) => {
