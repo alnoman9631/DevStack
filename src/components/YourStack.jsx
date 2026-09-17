@@ -1,6 +1,6 @@
 function YourStack({ stack, onRemove, onRemoveAll }) {
   return (
-    <aside className="your-stack">
+    <aside className="your-stack" id="stack">
       <div className="your-stack-header">
         <div>
           <h2>Your Stack</h2>
