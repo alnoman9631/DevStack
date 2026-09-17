@@ -114,7 +114,7 @@ It allows us to write HTML-like syntax inside JavaScript and use it to describe 
 
 Example:
 
-```jsx
+
 function App() {
   return <h1>Hello React</h1>;
 }
@@ -130,7 +130,7 @@ In simple terms:
 Props: Data passed from parent to child.
 State: Data managed inside a component.
 
-3. What is the useState hook?
+### 3. What is the useState hook?
 
 useState is a React Hook that allows a functional component to store and manage state.
 
@@ -144,7 +144,7 @@ count is the current state value.
 setCount is the function used to update the state.
 0 is the initial value.
 
-4. What is the useEffect hook?
+### 4. What is the useEffect hook?
 
 useEffect is a React Hook used to perform side effects in a component.
 
@@ -155,15 +155,15 @@ Interact with external systems
 Run code after a component renders
 Perform other side effects
 
-5. Why is the key prop important when rendering lists?
+### 5. Why is the key prop important when rendering lists?
 
 The key prop helps React identify which items in a list have changed, been added, or been removed.
 
-6. What is conditional rendering in React?
+### 6. What is conditional rendering in React?
 
 Conditional rendering means displaying different UI elements depending on a condition.
 
-7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
 
 A parent component can pass data to a child component using props.
 
