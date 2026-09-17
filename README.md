@@ -112,12 +112,6 @@ JSX stands for JavaScript XML.
 
 It allows us to write HTML-like syntax inside JavaScript and use it to describe the UI of React components.
 
-Example:
-
-
-function App() {
-  return <h1>Hello React</h1>;
-}
 
 ### 2. What is the difference between state and props?
 
